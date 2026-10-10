@@ -1,0 +1,19 @@
+# Home Assistant automation: spark the fire once per booking.
+# Paste into Settings > Automations > New > Edit in YAML.
+# Replace the webhook_id with your own long random string (treat it like a password):
+#   python3 -c "import secrets;print('booking-'+secrets.token_urlsafe(18))"
+# Your booking system (or email tool) then POSTs to:
+#   https://<your-home-assistant>/api/webhook/<webhook_id>
+alias: Fire spark on booking
+description: Sparks the fire once each time a booking webhook arrives.
+mode: queued
+max: 20
+triggers:
+  - trigger: webhook
+    webhook_id: booking-CHANGE-ME-to-a-long-random-string
+    allowed_methods: [POST]
+    local_only: false
+actions:
+  - action: button.press
+    target:
+      entity_id: button.stretch_fire_spark

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="strip" x1="0" x2="1">
+      <stop offset="0" stop-color="#ff7a1a"/><stop offset=".5" stop-color="#ffb347"/><stop offset="1" stop-color="#ff5a0f"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <rect width="860" height="380" rx="18" fill="#fffaf3"/>
+  <text x="30" y="42" font-size="20" font-weight="700" fill="#3b2418">How it's wired</text>
+  <text x="30" y="64" font-size="13" fill="#7a5a48">Four parts, a handful of wires. The little chip in the middle lets the 3.3 V board talk to the 5 V lights.</text>
+
+  <!-- wires -->
+  <g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 300 V330 H740 V250" stroke="#d63c2f"/>           <!-- 5V to strip -->
+    <path d="M150 330 H98 V180" stroke="#d63c2f"/>                <!-- 5V to ESP32 VIN -->
+    <path d="M330 330 V250" stroke="#d63c2f"/>                     <!-- 5V to shifter -->
+    <path d="M190 300 V350 H760 V250" stroke="#2b2b2b"/>           <!-- GND to strip -->
+    <path d="M190 350 H78 V180" stroke="#2b2b2b"/>                 <!-- GND to ESP32 -->
+    <path d="M350 350 V250" stroke="#2b2b2b"/>                     <!-- GND to shifter -->
+    <path d="M230 150 H290" stroke="#22a06b"/>                     <!-- GPIO18 to shifter -->
+    <path d="M410 150 H470" stroke="#22a06b"/>
+    <path d="M530 150 H600 V200 H620" stroke="#22a06b"/>
+  </g>
+
+  <!-- ESP32 -->
+  <rect x="60" y="100" width="170" height="100" rx="12" fill="#2f6fde"/>
+  <text x="145" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">ESP32 board</text>
+  <text x="145" y="160" text-anchor="middle" font-size="12" fill="#dfe9ff">the brains, on Wi‑Fi</text>
+  <text x="145" y="182" text-anchor="middle" font-size="11" fill="#dfe9ff">data out: GPIO18</text>
+
+  <!-- level shifter -->
+  <rect x="290" y="110" width="120" height="140" rx="12" fill="#6b4fd8"/>
+  <text x="350" y="145" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">74AHCT125</text>
+  <text x="350" y="166" text-anchor="middle" font-size="12" fill="#ece7ff">level shifter</text>
+  <text x="350" y="184" text-anchor="middle" font-size="11" fill="#ece7ff">3.3 V → 5 V</text>
+
+  <!-- resistor -->
+  <rect x="470" y="136" width="60" height="28" rx="6" fill="#e8d3b0" stroke="#a88b62" stroke-width="2"/>
+  <text x="500" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#5b4326">330 Ω</text>
+
+  <!-- strip -->
+  <rect x="620" y="190" width="200" height="60" rx="14" fill="url(#strip)" filter="url(#glow)" opacity=".8"/>
+  <rect x="620" y="190" width="200" height="60" rx="14" fill="#3b2418"/>
+  <g fill="url(#strip)">
+    <circle cx="645" cy="220" r="7"/><circle cx="670" cy="220" r="7"/><circle cx="695" cy="220" r="7"/><circle cx="720" cy="220" r="7"/>
+    <circle cx="745" cy="220" r="7"/><circle cx="770" cy="220" r="7"/><circle cx="795" cy="220" r="7"/>
+  </g>
+  <text x="720" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#3b2418">60 LED strip (WS2812B)</text>
+
+  <!-- capacitor -->
+  <rect x="725" y="262" width="50" height="22" rx="5" fill="#2b2b2b"/>
+  <text x="750" y="277" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">1000 µF</text>
+
+  <!-- PSU -->
+  <rect x="110" y="250" width="120" height="50" rx="10" fill="#f2b84b"/>
+  <text x="170" y="272" text-anchor="middle" font-size="14" font-weight="700" fill="#3b2418">5 V power</text>
+  <text x="170" y="290" text-anchor="middle" font-size="11" fill="#3b2418">2 to 3 A supply</text>
+
+  <!-- legend -->
+  <g font-size="12" fill="#3b2418">
+    <rect x="460" y="300" width="0" height="0"/>
+    <line x1="470" y1="70" x2="0" y2="0" stroke="none"/>
+    <circle cx="620" cy="95" r="6" fill="#d63c2f"/><text x="632" y="99">5 V power</text>
+    <circle cx="715" cy="95" r="6" fill="#2b2b2b"/><text x="727" y="99">ground</text>
+    <circle cx="790" cy="95" r="6" fill="#22a06b"/><text x="802" y="99">data</text>
+  </g>
+</svg>
