@@ -4,7 +4,9 @@
 
 ### A cozy LED fireplace that throws sparks every time someone books a class.
 
-<img src="assets/fire-demo.gif" alt="An LED strip flickering like a wood fire, flaring with sparks as booking notifications pop up" width="720">
+<img src="assets/stretch-fire-real.gif" alt="The driftwood campfire in the studio, glowing orange from the LED strip hidden inside, then a close look at the lit strip" width="720">
+
+*The real thing in the studio. [Full 35 second video (MP4, 8 MB)](assets/stretch-fire-demo.mp4).*
 
 *Built for [STRETCH](https://www.stretchvancouver.com), a yoga studio in Vancouver's Chinatown.*
 
@@ -81,7 +83,9 @@ Something not right? See [troubleshooting](docs/troubleshooting.md).
 - **Home Assistant** gets a light (with Hearth and Fire2012 effects), a **Spark** button, a `spark` action that takes a `count`, plus Wi‑Fi signal, uptime and restart.
 - **Trigger:** an HA [webhook automation](home-assistant/automation.yaml) in `queued` mode, so simultaneous bookings each get a burst.
 - **Original sketch:** the project started as an Arduino/FastLED sketch with a serial command interface and lots of diagnostics. It's kept in [`arduino/fire_flicker`](arduino/fire_flicker/fire_flicker.ino) for anyone who wants a standalone fire with no smart home.
-- **The demo GIF** is rendered by [`tools/render_demo.py`](tools/render_demo.py), a Python port of the same effect maths.
+- **The rendered demo GIF** below is produced by [`tools/render_demo.py`](tools/render_demo.py), a Python port of the same effect maths, so you can see the spark overlay without the hardware.
+
+  <img src="assets/fire-demo.gif" alt="Rendered simulation of the LED strip flickering like a wood fire, flaring with sparks as booking notifications pop up" width="600">
 
 </details>
 
